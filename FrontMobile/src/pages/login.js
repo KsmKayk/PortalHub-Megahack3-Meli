@@ -46,7 +46,7 @@ export default function Login() {
                     width: 130,
                     height: 155,
                 }}
-                source={require('./assets/logo.png')}
+                source={require('../../assets/logo.png')}
                 />
             </View>
 
