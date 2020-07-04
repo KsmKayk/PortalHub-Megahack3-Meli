@@ -6,8 +6,8 @@ import Login from "./pages/login";
 const Routes = createAppContainer(
   createStackNavigator(
     {
-      Main: {
-        screen: Main,
+      Login: {
+        screen: Login,
         navigationOptions: {
           title: "Login"
         }
