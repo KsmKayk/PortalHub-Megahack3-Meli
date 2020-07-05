@@ -5,12 +5,14 @@ class Auth {
 
   login(cb) {
     this.authenticated = true
+    localStorage.removeItem("@portalhub/isLogged?")
     localStorage.setItem("@portalhub/isLogged?", true)
     cb()
   }
 
   logout(cb) {
     this.authenticated = false
+    localStorage.removeItem("@portalhub/isLogged?")
     localStorage.setItem("@portalhub/isLogged?", false)
     cb()
   }

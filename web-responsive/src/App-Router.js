@@ -12,12 +12,13 @@ import {Register} from "./pages/Register"
 import {Home} from "./pages/Home"
 import {Dashboard} from "./pages/Dashboard"
 import Notfound from "./pages/notfound";
+import {ProtectedRoute} from "./protected"
 
 const PrivateRoute = ({ component: Component, ...rest}) => (
   <Route
       {...rest}
       render={props => 
-        auth.isLogged() ? (
+        auth.isLogged() === true ? (
           <Component {...props} />
         ) : (
           <Redirect to= {{ pathname: "/", state: {from: props.location}}} />
@@ -34,7 +35,7 @@ export default function App() {
       <Route exact path="/" component={Dashboard}/>
         <Route exact path="/Login" component={Login}/>
         <Route exact path="/Register" component={Register}/>
-        <PrivateRoute exact path="/Home" component={Home} />
+        <ProtectedRoute exact path="/Home" component={Home} />
       </Switch>
     </BrowserRouter>
   )
