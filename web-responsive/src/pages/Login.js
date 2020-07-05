@@ -1,13 +1,5 @@
-import React, { useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
-  useHistory,
-  useLocation
-} from "react-router-dom";
+import React, { useState} from "react";
+
 import "./global.css";
 import "./Login.css"
 import api from "../services/localapi"
@@ -20,7 +12,13 @@ export default function Login() {
 
   async function handleSubmit(evt) {
     evt.preventDefault()
-    window.location.assign("http://www.localhost:3000/home")
+    //window.location.assign("http://www.localhost:3000/home")
+    await api.post("/auth", {
+      Email:Email,
+      Password:Password
+    }).then(function(response) {
+      console.log(response.data)
+    })
     
   } 
 
