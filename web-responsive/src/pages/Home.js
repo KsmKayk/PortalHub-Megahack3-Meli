@@ -1,8 +1,8 @@
 import React from "react";
-import "./Home.css"
 import "./global.css";
+import "./Home.css"
 
-export default function Home() {
+export const Home = props => {
   return (
     <>
       <h1>Home</h1>

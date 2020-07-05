@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell {
+  outline-color: rgba(0, 0, 0, 0.205);
+  outline-width: 1px;
+  outline-style: solid;
+  margin-top: 40px;
+  width: 360px;
+  height: 640px;
+  background-color: #152570;
+}
+
+.logo {
+  width: 195px;
+  height: 193px;
+}
+
+.title {
+  margin-top: 0px;
+  margin-left: 96px;
+  margin-right: 79px;
+
+  width: 185px;
+  height: 111px;
+
+  font-family: Zilla Slab;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 45px;
+  line-height: 54px;
+
+  color: #FFFDFD;
+
+}
+
+.loginButton {
+  margin-top: 77px;
+  margin-left: 97px;
+  margin-right: 96px;
+
+  background-color: #ffffff;
+  display: block;
+  text-align: center;
+  padding-top: 13px;
+  height: 3.46em;
+  width: 11.13em;       
+  text-decoration: none;
+
+  border: 2px solid #152570;
+  box-sizing: border-box;
+  border-radius: 6px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 13px;
+  line-height: 15px;
+  color: #0086E0;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.registerLink {
+  margin-left: 132px;
+  margin-right: 139px;
+
+  font-family: Zilla Slab;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  color: #0086E0;
+  text-decoration: none;
+}

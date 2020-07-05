@@ -1,77 +1,45 @@
 import React, { useState} from "react";
-
+import auth from "../auth"
 import "./global.css";
 import "./Login.css"
 import api from "../services/localapi"
+const logo = require("./public/Logo.svg")
 
 
 
-export default function Login() {
+export const Login = props => {
   const [Email, setEmail] = useState("")
   const [Password, setPassword] = useState("")
 
   async function handleSubmit(evt) {
     evt.preventDefault()
-    //window.location.assign("http://www.localhost:3000/home")
     await api.post("/auth", {
       Email:Email,
       Password:Password
     }).then(function(response) {
-      console.log(response.data)
+      if(response.data === true) {
+          
+          auth.login(() => {props.history.push("/home")})
+      }
+      if(response.data === false) {
+        localStorage.setItem("@portalhub/isLogged?", false)
+      }
     })
     
   } 
 
-  return ( 
-    <div class="container" >
-        <a class="links" id="paracadastro"></a>
-        <a class="links" id="paralogin"></a>
-
-        <div class="content"></div>
-            
-            <div id="login">
-            <form onSubmit={handleSubmit}>
-                <h1>Login</h1>
-                <p>
-                <label for="email_login">Seu e-mail</label>
-                <input id="email_login" name="email_login" required="required" type="text" placeholder="contato@htmlecsspro.com" value={Email} onChange={e => setEmail(e.target.value)}/>
-                </p>
-
-                <p>
-                    <label for="senha_login">Sua senha</label>
-                    <input id="senha_login" name="senha_login" required="required" type="password" placeholder="1234" value={Password} onChange={p => setPassword(p.target.value)} />
-                </p>
-
-                <p>
-                    <input type="checkbox" name="manterlogado" id="manterlogado" value="" />
-                    <label for="manterlogado">Manter-me logado</label>
-                </p>
-
-                <p>
-                    <input type="submit" value="Logar"  />
-                </p>
-
-                <p class="link">
-                    Ainda não tem conta?
-                    <a href="/register">Cadastre-se</a>
-                </p>
-            </form>
-        </div>
-    </div>
-   
-    
-    /*
-  <>
-    <form onSubmit={handleSubmit}>
-            <h1>
-                <label>Login:</label>
-                <input type="text" name="login" id="Email" value={Email}/><br/>
-                <label>Senha:</label><input type="password" name="senha" id="Password" value={Password}/><br/>
-                <input type="submit" value="Cadastrar" id="cadastrar" name="cadastrar"/>
-            </h1>
-    </form>
-  </> */
+  return (
+    <>
+    <div className="flex">
+      <div className="cell">
+        <img src={logo} alt="logo" className="logo"/>
+        <form onSubmit={handleSubmit}>
+          <input type="text" name="email" id="email" className="email" placeholder="jane@example.com" value={Email} onChange={e => setEmail(e.target.value)}/>
+          <input type="password" name="password" id="password" className="password" placeholder="••••••••••••" value={Password} onChange={e => setPassword(e.target.value)}/>
+          <button type="submit" className="login">Acessar</button>
+        </form>
+      </div>
+      </div>
+    </>
  )
 }
-
-
